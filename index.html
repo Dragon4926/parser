@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Parser Check">
+    <title>Parser Check</title>
+</head>
+
+<body>
+    <main>
+        <form id="parser-form">
+            <label for="parser-select">Choose a Parser:
+                <select name="parsers" id="parser-select" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="RDP">Recursive descent parser</option>
+                    <option value="ll1">LL(1)</option>
+                    <option value="lr1">CLR(1)</option>
+                    <option value="slr">SLR(1)</option>
+                    <option value="lalr1">LALR(1)</option>
+                    <!-- <option value="clr1">CLR(1)</option> -->
+                    <option value="opp">Operator precedence parser</option>
+                </select>
+            </label>
+
+            <div class="submit">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('parser-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            var selectedParser = document.getElementById('parser-select').value;
+            if (selectedParser !== '') {
+                // Open the selected HTML file in a new page
+                window.open( selectedParser + '.html', '_blank');
+            } else {
+                alert('Please choose a parser option');
+            }
+        });
+    </script>
+</body>
+
+</html>
